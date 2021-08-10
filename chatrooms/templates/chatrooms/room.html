@@ -1,0 +1,19 @@
+{% extends 'chatrooms/base.html' %}
+{% load static %}
+{% block content %}
+    <a class="leaveButton" href="{% url 'index' %}">Leave Room</a>
+
+    <div class="container">
+        <div id="chat-log"></div>
+    </div>
+
+    <div class="container">
+        <input class="textInput" id="chat-message-input" type="text" size="100"><br>
+        <input class="button" id="chat-message-submit" type="button" value="Send">
+        {{ room_name|json_script:"room-name" }}
+    </div>
+{% endblock content %}
+
+{% block js %}
+    <script src={% static 'chatrooms/room.js' %}></script>
+{% endblock js %}
