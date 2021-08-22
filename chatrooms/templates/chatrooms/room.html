@@ -5,6 +5,17 @@
 
     <div class="container">
         <div id="chat-log"></div>
+        {% for chat in chats.all %}
+            {% if chat.user.id == request.user.id %}
+                <div class="message sender">
+                    {{chat.content}}
+                </div>
+            {% else %}
+                <div class="message receiver">
+                    {{chat.content}}
+                </div>   
+            {% endif %}
+        {% endfor %}
     </div>
 
     <div class="container">
